@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             buSelected.setBackgroundColor(Color.GREEN)
             player1.add(cellID)
             activePlayer = 2
+            autoPlay()
         }
         else{
             buSelected.text = "0"
@@ -57,62 +61,59 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun checkWinner(){
-         var winner:Int ;
+         var winner = -1 ;
 
         // first row
         if(player1.contains(1) && player1.contains(2) && player1.contains(3)){
             winner = 1;
         }
-        else if(player2.contains(1) && player2.contains(2) && player2.contains(3)){
+        if(player2.contains(1) && player2.contains(2) && player2.contains(3)){
             winner = 2;
         }
 
         // second row
-        else if(player1.contains(4) && player1.contains(5) && player1.contains(6)){
+        if(player1.contains(4) && player1.contains(5) && player1.contains(6)){
             winner = 1;
         }
 
-        else if(player2.contains(4) && player2.contains(5) && player2.contains(6)){
+        if(player2.contains(4) && player2.contains(5) && player2.contains(6)){
             winner = 2;
         }
 
         //third row
-        else if(player1.contains(7) && player1.contains(8) && player1.contains(9)){
+        if(player1.contains(7) && player1.contains(8) && player1.contains(9)){
             winner = 1;
         }
 
-        else if(player2.contains(7) && player2.contains(8) && player2.contains(9)){
+        if(player2.contains(7) && player2.contains(8) && player2.contains(9)){
             winner = 2;
         }
 
         //first column
-        else if(player1.contains(1) && player1.contains(4) && player1.contains(7)){
+        if(player1.contains(1) && player1.contains(4) && player1.contains(7)){
             winner = 1;
         }
 
-        else if(player2.contains(1) && player2.contains(4) && player2.contains(7)){
+        if(player2.contains(1) && player2.contains(4) && player2.contains(7)){
             winner = 2;
         }
 
         //second column
-        else if(player1.contains(2) && player1.contains(5) && player1.contains(8)){
+        if(player1.contains(2) && player1.contains(5) && player1.contains(8)){
             winner = 1;
         }
 
-        else if(player2.contains(2) && player2.contains(5) && player2.contains(8)){
+        if(player2.contains(2) && player2.contains(5) && player2.contains(8)){
             winner = 2;
         }
 
         //third column
-        else if(player1.contains(3) && player1.contains(6) && player1.contains(9)){
+        if(player1.contains(3) && player1.contains(6) && player1.contains(9)){
             winner = 1;
         }
 
-        else if(player2.contains(3) && player2.contains(6) && player2.contains(9)){
+        if(player2.contains(3) && player2.contains(6) && player2.contains(9)){
             winner = 2;
-        }
-        else{
-            winner = -1;
         }
 
         if(winner != -1){
@@ -123,5 +124,38 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"Player 2 win the game",Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    fun autoPlay(){
+        var emptyCells = ArrayList<Int>()
+
+        for(cellID in 1..9){
+            if (!(player1.contains(cellID) || player2.contains(cellID))){
+                emptyCells.add(cellID)
+            }
+        }
+
+        val r = Random()
+        val randIndex = r.nextInt(emptyCells.size-0)+0
+        val cellID = emptyCells[randIndex]
+
+        var buSelect:Button?
+
+        when(cellID){
+            1-> buSelect = bu1
+            2-> buSelect =bu2
+            3-> buSelect =bu3
+            4-> buSelect =bu4
+            5-> buSelect =bu5
+            6-> buSelect =bu6
+            7-> buSelect =bu7
+            8-> buSelect =bu8
+            9-> buSelect =bu9
+            else ->{
+                buSelect = bu1
+            }
+        }
+
+        playGame(cellID,buSelect)
     }
 }
