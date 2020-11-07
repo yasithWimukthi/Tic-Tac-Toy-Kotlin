@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eee"
     android:gravity="center"
     tools:context=".MainActivity">
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="3pt"
         android:gravity="center">
 
         <Button
@@ -17,6 +19,7 @@
             android:layout_width="40pt"
             android:layout_height="40pt"
             android:layout_marginRight="3pt"
+            android:background="#fff"
             android:onClick="buClick" />
 
         <Button
@@ -24,18 +27,21 @@
             android:layout_width="40pt"
             android:layout_height="40pt"
             android:layout_marginRight="3pt"
+            android:background="#fff"
             android:onClick="buClick" />
 
         <Button
             android:id="@+id/bu3"
             android:layout_width="40pt"
             android:layout_height="40pt"
+            android:background="#fff"
             android:onClick="buClick" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="3pt"
         android:gravity="center">
 
         <Button
@@ -43,6 +49,7 @@
             android:layout_width="40pt"
             android:layout_height="40pt"
             android:layout_marginRight="3pt"
+            android:background="#fff"
             android:onClick="buClick" />
 
         <Button
@@ -50,12 +57,14 @@
             android:layout_width="40pt"
             android:layout_height="40pt"
             android:layout_marginRight="3pt"
+            android:background="#fff"
             android:onClick="buClick" />
 
         <Button
             android:id="@+id/bu6"
             android:layout_width="40pt"
             android:layout_height="40pt"
+            android:background="#fff"
             android:onClick="buClick" />
     </TableRow>
 
@@ -69,6 +78,7 @@
             android:layout_width="40pt"
             android:layout_height="40pt"
             android:layout_marginRight="3pt"
+            android:background="#fff"
             android:onClick="buClick" />
 
         <Button
@@ -76,12 +86,14 @@
             android:layout_width="40pt"
             android:layout_height="40pt"
             android:layout_marginRight="3pt"
+            android:background="#fff"
             android:onClick="buClick" />
 
         <Button
             android:id="@+id/bu9"
             android:layout_width="40pt"
             android:layout_height="40pt"
+            android:background="#fff"
             android:onClick="buClick" />
     </TableRow>
 </TableLayout>
